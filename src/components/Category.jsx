@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Category = () => {
   return (
     <>
-    <ul className="flex flex-wrap pt-30 items-center justify-center text-gray-700 gap-6">
+    <ul className="flex flex-wrap pt-24 items-center justify-center text-gray-700 gap-6">
         <li>
             <Link
               to="/macbook_air"

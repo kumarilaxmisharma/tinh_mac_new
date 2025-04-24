@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, Heart, ChevronDown } from "lucide-react";
 import React, { useState } from 'react';
 
+
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -10,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="md:ml-0 fixed top-0 left-0 right-0 z-20 h-24 bg-white border-b border-gray-200 shadow-xs">
+    <header className="md:ml-0 fixed top-0 left-0 right-0 z-20 h-20 bg-white border-b border-gray-200 shadow-xs">
       <div className="container max-w-full h-full px-22 flex justify-between items-center">
         {/* Logo */}
         <Link to={"/"} className="flex items-center space-x-1 cursor-pointer">
@@ -40,7 +41,7 @@ const Navbar = () => {
             Wishlist
           </Link>
           <Link
-            to="/admin"
+            to="/dashboard"
             className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-[#004AAD] text-white rounded-full hover:bg-blue-600 transition-colors"
           >
             Admin

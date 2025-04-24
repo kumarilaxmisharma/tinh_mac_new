@@ -1,6 +1,13 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
+
+//Create handle submit function
+//event.preventDefault() to prevent the default form submission
+
+//Create {useNavigate} hook to navigate to home page when user signup
+
+
 const SignupAdmin = () => {
   const navigate = useNavigate();
 
@@ -44,11 +51,11 @@ const SignupAdmin = () => {
         <div className="mt-5">
           <button type="button" className="flex items-center justify-center w-full bg-white text-gray-700 hover:bg-gray-100 font-medium rounded-sm border-1 border-gray-400 text-sm px-5 py-2.5 mb-3 cursor-pointer">
             <img src="src/assets/images/logo/Google logo.png" alt="Google" className="w-5 h-5 mr-2" />
-            Login with Google
+            Sign Up with Google
           </button>
           <button type="button" className="flex items-center justify-center w-full bg-white text-gray-700 hover:bg-gray-100 font-medium rounded-sm border-1 border-gray-400 text-sm px-5 py-2.5 cursor-pointer">
             <img src="src/assets/images/logo/Facebook logo.png" alt="Facebook" className="w-5 h-5 mr-2" />
-            Login with Facebook
+            Sign Up with Facebook
           </button>
         </div>
 

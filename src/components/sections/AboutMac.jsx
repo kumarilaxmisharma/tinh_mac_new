@@ -51,7 +51,7 @@ const AboutMac = () => {
   )
 
   return (
-    <div className="container max-w-screen px-22 py-18">
+    <div className="container max-w-screen px-22 py-14">
       <div className="grid grid-cols-12 gap-4">
         {/* First column */}
         <div className="col-span-12 md:col-span-3 flex flex-col gap-4 ">

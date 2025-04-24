@@ -1,5 +1,6 @@
 // ProductDetailPage.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Star, Minus, Plus, Heart, Share2, Copy, Facebook, Twitter } from 'lucide-react';
 
@@ -350,7 +351,10 @@ export default function ProductDetail() {
               </button>
             </div>
 
-            <button className="bg-[#004aad] text-white px-8 py-3 rounded-lg flex items-center justify-center gap-2 flex-1">
+            {/* Add to Cart and Buy Now buttons */}
+            <Link
+              to="/cart"
+              className="bg-[#004aad] text-white px-8 py-3 rounded-lg flex items-center justify-center gap-2 flex-1">
               ADD TO CART
               <svg
                 className="w-5 h-5"
@@ -366,7 +370,7 @@ export default function ProductDetail() {
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
-            </button>
+            </Link>
 
             <button className="border-2 border-[#004aad] text-[#004aad] px-8 py-3 rounded-lg">
               BUY NOW

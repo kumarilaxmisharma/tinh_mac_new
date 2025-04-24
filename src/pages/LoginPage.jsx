@@ -3,6 +3,13 @@ import {useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 
+//Create handle submit function
+//event.preventDefault() to prevent the default form submission
+
+
+//Create {useNavigate} hook to navigate to home page when user login
+
+
 const LoginPage = () => {
   const navigate = useNavigate();
 
