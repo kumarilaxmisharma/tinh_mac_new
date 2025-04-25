@@ -14,7 +14,7 @@ const Navbar = () => {
     <header className="md:ml-0 fixed top-0 left-0 right-0 z-20 h-20 bg-white border-b border-gray-200 shadow-xs">
       <div className="container max-w-full h-full px-22 flex justify-between items-center">
         {/* Logo */}
-        <Link to={"/"} className="flex items-center space-x-1 cursor-pointer">
+        <Link to={"/homepage"} className="flex items-center space-x-1 cursor-pointer">
           <img 
             src="src/assets/images/logo/Logo.png"
             alt="Logo" 

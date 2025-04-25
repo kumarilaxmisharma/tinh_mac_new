@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, Bell, User, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ml-60">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Sales Dashboard</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Admin</h1>
             </div>
             {/* Search Bar */}
             <div className="flex items-center">
@@ -61,15 +62,27 @@ const Navbar = () => {
                 </div>
                 
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-64 bg-blue-100 text-white rounded-md shadow-lg z-10 py-2">
-                    <div className="px-4 py-3 border-b border-gray-700">
+                  <div className="absolute right-0 mt-2 w-64 bg-white text-white rounded-md shadow-lg z-10 py-2">
+                    <div className="px-4 py-3 border-b border-gray-200">
                       <p className="text-lg font-medium text-gray-800">Laxmi</p>
-                      <p className="text-sm text-gray-800">kumarilaxmisharma@gmail.com</p>
+                      <p className="text-sm text-gray-700">kumarilaxmisharma@gmail.com</p>
                     </div>
                     <nav>
-                      <a href="/dashboard" className="block px-4 py-2 hover:bg-blue-300 transition text-gray-800">Profiles</a>
-                      <a href="/settings" className="block px-4 py-2 hover:bg-blue-300 transition text-gray-800">Settings</a>
-                      <a href="/sign-out" className="block px-4 py-2 hover:bg-blue-300 transition text-gray-800">Sign out</a>
+                      <Link 
+                        to="/profile" 
+                        className="block px-4 py-2 hover:bg-indigo-600 hover:text-white transition text-gray-800">
+                        Profiles
+                      </Link>
+                      <Link 
+                        to="/settings" 
+                        className="block px-4 py-2 hover:bg-indigo-600 hover:text-white transition text-gray-800">
+                        Settings
+                      </Link>
+                      <Link 
+                        to="/sign-out" 
+                        className="block px-4 py-2 hover:bg-indigo-600 hover:text-white transition text-gray-800">
+                        Sign out
+                      </Link>
                     </nav>
                   </div>
                 )}

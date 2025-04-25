@@ -1,10 +1,8 @@
-import { Heart } from "lucide-react"
 import { useState } from "react"
 // import { useRouter } from "next/router" // For Next.js
 import { useNavigate } from "react-router-dom" // For React Router
 
-
-export default function ProductCard() {
+const ProductCard = () => {
   const [currentPage, setCurrentPage] = useState(1)
   // const router = useRouter() // For Next.js
   const navigate = useNavigate() // For React Router
@@ -190,4 +188,6 @@ export default function ProductCard() {
       </div>
     </div>
   )
-}
+};
+
+export default ProductCard;

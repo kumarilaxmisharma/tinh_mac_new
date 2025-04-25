@@ -1,7 +1,7 @@
+import { Outlet } from 'react-router-dom';
 import React from 'react';
 import Navbar from '/src/components/admin/Navbar';
 import Sidebar from '/src/components/admin/Sidebar';
-import DashboardPage from '/src/pages/admin_page/DashboardPage';
 
 const AdminLayout = () => {
   return (
@@ -13,12 +13,9 @@ const AdminLayout = () => {
         {/* Sidebar */}
         <Sidebar />
         
-        {/* Main Content */}
-        <div className="flex flex-col ml-60 min-h-screen bg-gray-100">
-          <DashboardPage />
+        <Outlet />
         </div>
       </div>
-    </div>
   );
 };
 

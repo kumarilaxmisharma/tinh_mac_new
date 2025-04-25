@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+
+  // State to hold the number of orders
+  const [orderCount, setOrderCount] = useState(0);
+
+  // Simulate fetching the order count (replace this with an API call if needed)
+  useEffect(() => {
+    const fetchOrderCount = async () => {
+      // Simulate an API call to fetch the number of orders
+      const simulatedOrderCount = 5; // Replace this with dynamic data from your backend
+      setOrderCount(simulatedOrderCount);
+    };
+
+    fetchOrderCount();
+  }, []); // Empty dependency array ensures this runs once on component mount
+
   return (
     <div>
       <button
@@ -45,8 +60,8 @@ const Sidebar = () => {
           {/* Sidebar Menu */}
           <ul className="space-y-2 font-medium">
             <li>
-              <a
-                href="#"
+              <Link
+                to="/dashboard"
                 className="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-[#004AAD] group"
               >
                 <svg
@@ -60,15 +75,40 @@ const Sidebar = () => {
                   <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
                 </svg>
                 <span className="ms-3">Dashboard</span>
-              </a>
+              </Link>
             </li>
+          
+             <li>
+              <Link 
+                to="/orders" 
+                class="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-[#004AAD] group">
+                    <svg 
+                      class="w-5 h-5 text-white group-hover:text-[#004AAD] transition duration-75" 
+                      aria-hidden="true" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      fill="currentColor" 
+                      viewBox="0 0 18 21">
+                      <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
+                    </svg>
+                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
+                      Orders
+                    </span>
+                    {/* Dynamic Badge*/}
+                    {orderCount > 0 && (
+                    <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-[#004AAD] bg-white rounded-full">
+                      {orderCount}
+                    </span>
+                    )}
+              </Link>
+            </li>
+
             <li>
               <a
                 href="#"
                 className="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-[#004AAD] group"
               >
                 <svg
-                  className="shrink-0 w-5 h-5 text-white group-hover:text-[#004AAD] transition duration-75"
+                  className="w-5 h-5 text-white group-hover:text-[#004AAD] transition duration-75"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -82,9 +122,12 @@ const Sidebar = () => {
                 </span>
               </a>
             </li>
+
+
+            {/* Customers Button */}
             <li>
-              <a
-                href="#"
+              <Link
+                to="/customers"
                 className="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-[#004AAD] group"
               >
                 <svg
@@ -97,8 +140,10 @@ const Sidebar = () => {
                   <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Customers</span>
-              </a>
+              </Link>
             </li>
+
+            {/* Products Button */}
             <li>
               <Link
                 to="/products"
@@ -119,6 +164,19 @@ const Sidebar = () => {
                 </span>
               </Link>
             </li>
+
+            {/* Category */}
+            <li>
+            <Link 
+              to="/category" 
+              class="flex items-center p-2  text-white rounded-lg hover:bg-white hover:text-[#004AAD] group">
+               <svg class="shrink-0 w-5 h-5 text-white group-hover:text-[#004AAD] transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                  <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
+               </svg>
+               <span class="flex-1 ms-3 whitespace-nowrap">Category</span>
+               <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full"></span>
+            </Link>
+         </li>
           </ul>
         </div>
       </aside>

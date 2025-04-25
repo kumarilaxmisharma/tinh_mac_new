@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ChevronDown, Plus, ChevronLeft, ChevronRight, Edit, Trash2 } from 'lucide-react';
+import {  Plus, ChevronLeft, ChevronRight, Edit, Trash2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export default function ElectronicsProductDisplay() {
+const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   
@@ -9,9 +10,9 @@ export default function ElectronicsProductDisplay() {
   const products = [
     { 
       id: '#761324', 
-      name: 'Sony Headphone', 
-      category: 'Headphone', 
-      price: 366, 
+      name: 'MacBook Pro 16-inch', 
+      category: 'MacBook Pro', 
+      price: 1200, 
       originalPrice: 732,
       discount: '50% off', 
       rating: 5,
@@ -21,9 +22,9 @@ export default function ElectronicsProductDisplay() {
     },
     { 
       id: '#761325', 
-      name: 'Samsung Tablet (32GB)', 
-      category: 'Tablet', 
-      price: 450, 
+      name: 'MacBook Air 13-inch', 
+      category: 'MacBook Air', 
+      price: 850, 
       originalPrice: 450,
       discount: '', 
       rating: 5,
@@ -33,9 +34,9 @@ export default function ElectronicsProductDisplay() {
     },
     { 
       id: '#761326', 
-      name: 'Nikon AF-S DX Camera', 
-      category: 'Camera', 
-      price: 550, 
+      name: 'MacBook Pro 14-inch', 
+      category: 'MacBook Pro', 
+      price: 900, 
       originalPrice: 1100,
       discount: '50% off', 
       rating: 5,
@@ -45,9 +46,9 @@ export default function ElectronicsProductDisplay() {
     },
     { 
       id: '#761327', 
-      name: 'Sony A7-S FX Camera', 
-      category: 'Video camera', 
-      price: 670, 
+      name: 'IMac', 
+      category: 'IMac', 
+      price: 1300, 
       originalPrice: 1340,
       discount: '50% off', 
       rating: 5,
@@ -55,82 +56,11 @@ export default function ElectronicsProductDisplay() {
       status: 'Stock',
       pieces: 9
     },
-    { 
-      id: '#761328', 
-      name: 'Wireless Game Joystick', 
-      category: 'Joystick', 
-      price: 120, 
-      originalPrice: 240,
-      discount: 'Popular', 
-      rating: 5,
-      image: '/api/placeholder/120/100',
-      status: 'Stock',
-      pieces: 23
-    },
-    { 
-      id: '#761329', 
-      name: 'Samsung 24X Camera', 
-      category: 'Camera', 
-      price: 520, 
-      originalPrice: 520,
-      discount: '', 
-      rating: 5,
-      image: '/api/placeholder/120/100',
-      status: 'Sold Out',
-      pieces: 16
-    },
-    { 
-      id: '#761330', 
-      name: 'Combo Package', 
-      category: 'Package', 
-      price: 1150, 
-      originalPrice: 1500,
-      discount: 'Popular', 
-      rating: 5,
-      image: '/api/placeholder/120/100',
-      status: 'Stock',
-      pieces: 6
-    },
-    { 
-      id: '#761331', 
-      name: 'Samsung Galaxy Tab', 
-      category: 'Tablet', 
-      price: 250, 
-      originalPrice: 250,
-      discount: '', 
-      rating: 5,
-      image: '/api/placeholder/120/100',
-      status: 'Stock',
-      pieces: 45
-    },
-    { 
-      id: '#761332', 
-      name: 'Sony Tablet', 
-      category: 'Tablet', 
-      price: 450, 
-      originalPrice: 450,
-      discount: '', 
-      rating: 5,
-      image: '/api/placeholder/120/100',
-      status: 'Stock',
-      pieces: 14
-    },
-    { 
-      id: '#761333', 
-      name: 'Wireless Headphone', 
-      category: 'Headphone', 
-      price: 670, 
-      originalPrice: 670,
-      discount: '', 
-      rating: 5,
-      image: '/api/placeholder/120/100',
-      status: 'Stock',
-      pieces: 35
-    }
+    
   ];
 
   // Pagination functionality for product cards
-  const productsPerPage = 8;
+  const productsPerPage = 4;
   const totalPages = Math.ceil(products.length / productsPerPage);
   const displayedProducts = products.slice(0, productsPerPage);
 
@@ -159,21 +89,20 @@ export default function ElectronicsProductDisplay() {
   };
 
   return (
-    <div className="bg-gray-50 p-6 min-h-screen">
-      <h1 className="text-xl font-bold text-gray-800 mb-6">Products</h1>
+    <div className="flex flex-col min-h-screen ml-62 bg-gray-50 p-6 max-w-screen flex-grow">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Products</h1>
       
       {/* Filter and Upload Controls */}
       <div className="flex justify-between items-center mb-6">
         <div className="relative w-56">
-          <select className="appearance-none bg-white border border-gray-300 rounded-lg py-2 px-4 pr-8 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <select className="appearance-none bg-white border border-gray-300 rounded-lg py-2 px-4 pr-8 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:shadow-md">
             <option>All categories</option>
-            <option>Headphones</option>
-            <option>Tablets</option>
-            <option>Cameras</option>
-            <option>Joysticks</option>
+            <option>MacBook Air</option>
+            <option>MacBook Pro</option>
+            <option>IMac</option>
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <ChevronDown size={16} />
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 size={16}">
+            
           </div>
         </div>
         
@@ -181,36 +110,36 @@ export default function ElectronicsProductDisplay() {
           <div className="flex items-center space-x-1 mr-4">
             <button 
               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))} 
-              className="w-8 h-8 flex items-center justify-center rounded-md border bg-white"
+              className="w-8 h-8 flex items-center justify-center rounded-md border border-gray-400 bg-white cursor-pointer hover:bg-blue-200 focus:bg-[#2463EB] focus:text-white"
             >
               <ChevronLeft size={16} />
             </button>
             
-            <button className="w-8 h-8 flex items-center justify-center rounded-md bg-blue-600 text-white">1</button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-md border bg-white">2</button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-md border bg-white">3</button>
-            <span className="text-gray-500">...</span>
-            <button className="w-8 h-8 flex items-center justify-center rounded-md border bg-white">10</button>
+            <button className="w-8 h-8 flex items-center justify-center rounded-md border-gray-400 bg-blue-600 text-white cursor-pointer">1</button>
+            <button className="w-8 h-8 flex items-center justify-center rounded-md border border-gray-400 bg-white cursor-pointer">2</button>
+            <button className="w-8 h-8 flex items-center justify-center rounded-md border border-gray-400 bg-white cursor-pointer">3</button>
             
             <button 
               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))} 
-              className="w-8 h-8 flex items-center justify-center rounded-md border bg-white"
+              className="w-8 h-8 flex items-center justify-center rounded-md border border-gray-400 bg-white cursor-pointer hover:bg-blue-200 focus:bg-[#2463EB] focus:text-white" 
             >
               <ChevronRight size={16} />
             </button>
           </div>
           
-          <button className="flex items-center bg-blue-600 text-white rounded-lg px-4 py-2">
+          <Link
+            to="/upload-product" 
+            className="flex items-center bg-blue-600 text-white rounded-lg px-4 py-2 cursor-pointer hover:bg-blue-700 focus:bg-[#2463EB] ">
             <Plus size={18} className="mr-2" />
             Upload
-          </button>
+          </Link>
         </div>
       </div>
 
       {/* Product Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         {displayedProducts.map((product, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer transition-transform transform hover:scale-105">
             {product.discount && (
               <div className="absolute m-2">
                 <span className={`text-xs font-semibold px-2 py-1 rounded ${
@@ -242,7 +171,7 @@ export default function ElectronicsProductDisplay() {
                   <span className="font-bold">${product.price}</span>
                 </div>
                 
-                <button className="w-full mt-4 py-2 bg-blue-100 text-blue-600 rounded-md font-medium transition hover:bg-blue-200">
+                <button className="w-full mt-4 py-2 bg-blue-100 text-blue-600 rounded-md font-medium transition hover:bg-blue-200 cursor-pointer ">
                   Add to cart
                 </button>
               </div>
@@ -257,16 +186,21 @@ export default function ElectronicsProductDisplay() {
         <div className="flex justify-end mb-3">
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-600">Show</span>
-            <select 
-              className="border rounded px-2 py-1 text-sm"
-              value={entriesPerPage}
-              onChange={(e) => setEntriesPerPage(Number(e.target.value))}
-            >
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={50}>50</option>
-            </select>
-            <span className="text-sm text-gray-600">Entries</span>
+            <div className="relative">
+              <select 
+                className="appearance-none border rounded px-2 py-1 pr-6 text-sm"
+                value={entriesPerPage}
+                onChange={(e) => setEntriesPerPage(Number(e.target.value))}
+              >
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700">
+                {/* <ChevronDown size={12} /> */}
+              </div>
+            </div>
+            <span className="text-sm text-gray-600 ml-2">Entries</span>
           </div>
         </div>
       </div>
@@ -351,3 +285,5 @@ export default function ElectronicsProductDisplay() {
     </div>
   );
 }
+
+export default ProductsPage;

@@ -1,20 +1,33 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
+{/* Importing layouts and pages */}
 import MainLayout from '../src/layouts/MainLayout';
 import GuestLayout from '../src/layouts/GuestLayout';
 import AdminLayout from '../src/layouts/AdminLayout';
+{/* Importing admin pages */}
 import DashboardPage from './pages/admin_page/DashboardPage';
 import ProductsPage from './pages/admin_page/ProductsPage';
-import HomePage from './pages/HomePage';
-import MacBookAirPage from './pages/MacBookAirPage';
-import MacBookProPage from './pages/MacBookProPage';
+import AdminProfilePage from './pages/admin_page/AdminProfilePage';
+import CustomersPage from './pages/admin_page/CustomersPage';
+import CategoryPage from './pages/admin_page/CategoryPage';
+import OrdersPage from './pages/admin_page/OrdersPage';
+
+{/* Importing user pages */}
+import HomePage from './pages/user_page/HomePage';
+import MacBookAirPage from './pages/user_page/MacBookAirPage';
+import MacBookProPage from './pages/user_page/MacBookProPage';
+import OrderConfirmationPage from './pages/user_page/OrderConfirmationPage';
+import SummaryPage from './pages/user_page/SummaryPage';
+
 // // import IMac from './pages/IMac';
-import ProductDetail from './pages/ProductDetail';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import SignupAdmin from './pages/SignupAdmin';
+import ProductDetail from './pages/user_page/ProductDetail';
+import CartPage from './pages/user_page/CartPage';
+import CheckoutPage from './pages/user_page/CheckoutPage';
+
+{/* Importing guest pages */}
+import LoginPage from './pages/authentication/LoginPage';
+import SignupPage from './pages/authentication/SignupPage';
+import SignupAdmin from './pages/authentication/SignupAdmin';
 
 
 function App() {
@@ -30,7 +43,9 @@ function App() {
           {/* <Route path='/imac' element={<IMac />} /> */}
           <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout" element={<CheckoutPage/>} />
+          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+          <Route path="/order-summary" element={<SummaryPage />} />
         </Route>
 
         {/* Geust Layout */}
@@ -43,7 +58,11 @@ function App() {
         {/* Admin Layout */}
         <Route element={<AdminLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/admin/products" element={<ProductsPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/profile" element={<AdminProfilePage />} />
+          <Route path="/customers" element={<CustomersPage />} />
+          <Route path="/category" element={<CategoryPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
         </Route>
 
         <Route path="*" element={<h1>404 Not Found</h1>} />

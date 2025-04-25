@@ -84,6 +84,6 @@ const AboutMac = () => {
       </div>
     </div>
   )
-}
+};
 
-export default AboutMac
+export default AboutMac;
