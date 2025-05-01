@@ -79,16 +79,9 @@ const OrdersPage = () => {
     { id: 'history', label: 'History', icon: <History size={18} /> },
   ];
 
-return (
-  <div className="flex min-h-screen">
-    {/* Sidebar (if applicable) */}
-    <aside className="w-64 bg-[#004AAD] text-white">
-      {/* Sidebar content */}
-    </aside>
-
-    {/* Main content */}
-    <div className="flex-1 flex flex-col p-4">
-      <div className="container mx-auto flex-grow">
+  return (
+    <div className="bg-gray-50 min-h-screen py-4 px-8 ml-60 w-full">
+      <div className="container max-w-screen justify-items-stretch">
         <h1 className="text-2xl font-bold mb-6 text-gray-800">Order Management</h1>
         
         {/* Tabs */}
@@ -100,7 +93,7 @@ return (
               className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
                 activeTab === tab.id
                   ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 cursor-pointer'
               } transition-colors font-medium`}
             >
               {tab.icon}
@@ -115,7 +108,7 @@ return (
         </div>
 
         {/* Order List */}
-        <div className="bg-white rounded-lg shadow flex-grow">
+        <div className="bg-white rounded-lg shadow">
           {filteredOrders.length === 0 ? (
             <div className="p-8 text-center text-gray-500">
               No orders found in this category
@@ -142,7 +135,7 @@ return (
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => toggleOrderDetails(order.id)}
-                        className="p-1 text-gray-400 hover:text-gray-600"
+                        className=" text-white cursor-pointer p-2 rounded-4xl bg-blue-600 hover:bg-blue-500 transition-colors"
                       >
                         {expandedOrderId === order.id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                       </button>
@@ -175,7 +168,7 @@ return (
                             {order.status !== STATUS.COMPLETED && (
                               <button
                                 onClick={() => updateOrderStatus(order.id, order.status)}
-                                className="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-sm font-medium cursor-pointer"
+                                className="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-sm font-medium"
                               >
                                 {order.status === STATUS.PENDING && "Accept Order"}
                                 {order.status === STATUS.ACCEPTED && "Start Processing"}
@@ -195,7 +188,7 @@ return (
         </div>
       </div>
     </div>
-  </div>
-);
+  );
 }
+
 export default OrdersPage;

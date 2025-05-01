@@ -28,7 +28,7 @@ const OrderConfirmationPage = () => {
       {/* Buttons for navigation */}
       <div className="flex justify-center gap-4 mb-10">
         <Link
-          to="/homepage"
+          to="/"
           className="bg-[#004AAD] text-white px-6 py-2 rounded-lg hover:opacity-90 cursor-pointer hover:shadow-lg"
           onClick={continueShopping}
         >

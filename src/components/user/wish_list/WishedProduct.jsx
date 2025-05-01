@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Heart, Star } from "lucide-react"
 
-export default function WishedProduct() {
+const WishedProduct = () => {
   const [wishlist, setWishlist] = useState({
     "macbook-pro-1": false,
     "macbook-pro-2": false,
@@ -46,9 +46,10 @@ export default function WishedProduct() {
     <div className="container max-w-screen px-22 py-20">
       <h1 className="text-5xl font-bold mb-10">Most Wished Product</h1>
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+
         {/* Product Cards */}
         {products.map((product) => (
-          <div key={product.id} className="bg-white rounded-3xl p-6 relative flex flex-col justify-between shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+          <div key={product.id} className="bg-white rounded-3xl p-6 relative flex flex-col justify-between boarder boarder-gray-200 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
             <button onClick={() => toggleWishlist(product.id)} className="absolute top-4 right-4 z-10 text-red-400 hover:text-red-600"> 
               <Heart className={`w-6 h-6 ${wishlist[product.id] ? "fill-red-500" : ""}`} />
             </button>
@@ -93,4 +94,6 @@ export default function WishedProduct() {
       </div>
     </div>
   )
-}
+};
+
+export default WishedProduct;

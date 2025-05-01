@@ -128,10 +128,10 @@ const ProductsPage = () => {
           </div>
           
           <Link
-            to="/upload-product" 
+            to="/add-product" 
             className="flex items-center bg-blue-600 text-white rounded-lg px-4 py-2 cursor-pointer hover:bg-blue-700 focus:bg-[#2463EB] ">
             <Plus size={18} className="mr-2" />
-            Upload
+            Add Product
           </Link>
         </div>
       </div>

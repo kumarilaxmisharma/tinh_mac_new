@@ -104,10 +104,10 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-50">
       
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
         {/* Date Filter */}
         <div className="mb-6 flex justify-between items-center">
-          <h2 className="text-lg font-medium text-gray-700">Analytics Overview</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
           <DateRangePicker 
             startDate={dateRange.startDate} 
             endDate={dateRange.endDate} 
@@ -206,10 +206,10 @@ export default function Dashboard() {
           {/* Top Products */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
             <h3 className="text-lg font-medium text-gray-700 mb-4">Top 10 Products by Quantity</h3>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 border border-gray-300 rounded-lg">
-                <thead className="bg-blue-600 ">
-                  <tr>
+            <div className="overflow-x-auto border border-gray-200 rounded-xl">
+              <table className="min-w-full divide-y divide-gray-100">
+                <thead>
+                  <tr className="bg-blue-600 ">
                     <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Product Name</th>
                     <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">Quantity</th>
                     <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">Price</th>
@@ -231,13 +231,13 @@ export default function Dashboard() {
           {/* Top Users */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 ">
             <h3 className="text-lg font-medium text-gray-700 mb-4">Top 10 Customers by Purchase Amount</h3>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto border border-gray-100 rounded-xl">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Total Spent</th>
+                  <tr className="bg-blue-600">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">User</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
+                    <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">Total Spent</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">

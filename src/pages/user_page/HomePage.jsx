@@ -1,10 +1,10 @@
 import React from 'react';
 // import { useState } from 'react';
-import AboutMac from '../../components/sections/AboutMac';
-import ProductCards from '../../components/sections/ProductCards';
-import WishedProduct from '../../components/sections/WishedProduct';
-import NewArrival from '../../components/sections/NewArrival';
-import NanoTexture from '../../components/sections/NanoTexture';
+import AboutMac from '../../components/user/AboutMac';
+import ProductCards from '../../components/user/product_card/ProductCards';
+import WishedProduct from '../../components/user/wish_list/WishedProduct';
+import NewArrival from '../../components/user/NewArrival';
+import NanoTexture from '../../components/user/NanoTexture';
 
 const HomePage = () => {
   return (

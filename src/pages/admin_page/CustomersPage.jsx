@@ -39,7 +39,7 @@ const CustomersPage = () => {
   }
   
   return (
-    <div className="w-full bg-white p-6 ml-62">
+    <div className="w-full bg-gray-50 p-6 ml-62">
       <h1 className="text-2xl font-bold mb-4">Customers</h1>
       {/* Search Bar */}
       <div className="mb-6 relative">

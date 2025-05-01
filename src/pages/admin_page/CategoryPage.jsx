@@ -168,7 +168,7 @@ const CategoryPage = () => {
         
         <button 
           onClick={openCreateModal}
-          className="flex items-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">
+          className="flex items-center bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition cursor-pointer">
           <Plus size={18} className="mr-2" />
           Add Category
         </button>
@@ -195,7 +195,7 @@ const CategoryPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button 
                         onClick={() => toggleExpand(category.id)}
-                        className="text-gray-500 hover:text-blue-600"
+                        className="text-gray-500 hover:text-blue-600 hover:bg-blue-200 rounded-full p-2 transition cursor-pointer"
                       >
                         {category.expanded ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                       </button>
@@ -287,8 +287,8 @@ const CategoryPage = () => {
 
       {/* Create/Edit Category Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
             <h2 className="text-xl font-bold mb-4">
               {editingCategory ? 'Edit Category' : 'Create New Category'}
             </h2>

@@ -20,7 +20,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className=" items-center min-h-screen px-120 py-15">
+    <div className=" items-center min-h-screen px-120 py-15 mt-20">
       <form className="max-w-screen mx-auto border-1 border-gray-100 rounded-[24px] shadow-lg p-10 bg-white">
         <h3 className="text-3xl font-bold text-center mb-5 text-[#004AAD] ">
           Login
