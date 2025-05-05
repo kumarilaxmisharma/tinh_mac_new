@@ -1,13 +1,68 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Heart, ChevronDown } from "lucide-react";
-import React, { useState } from 'react';
-
+import { ShoppingCart, Heart, ChevronDown, User, LogOut, Settings } from "lucide-react";
+import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState('');
 
+  // Toggle dropdown menu
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  // Close the dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isDropdownOpen && !event.target.closest('.dropdown-container')) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
+  // Check if user is logged in (you would use your auth system here)
+  useEffect(() => {
+    // Example: Check localStorage, cookies, or context for auth state
+    const checkAuthStatus = () => {
+      // This is a placeholder - replace with your actual auth check
+      const token = localStorage.getItem('authToken');
+      const user = localStorage.getItem('user');
+      
+      if (token) {
+        setIsLoggedIn(true);
+        setUserName(user ? JSON.parse(user).name : 'User');
+      }
+    };
+    
+    checkAuthStatus();
+  }, []);
+
+  // Handle logout
+  const handleLogout = () => {
+    // Clear auth data
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    setIsLoggedIn(false);
+    setIsDropdownOpen(false);
+  };
+
+  // For demonstration purposes only
+  const toggleLoginState = () => {
+    if (!isLoggedIn) {
+      // Simulate login
+      localStorage.setItem('authToken', 'demo-token');
+      localStorage.setItem('user', JSON.stringify({ name: 'John Doe' }));
+      setIsLoggedIn(true);
+      setUserName('John Doe');
+    } else {
+      handleLogout();
+    }
   };
 
   return (
@@ -30,7 +85,7 @@ const Navbar = () => {
             className="w-full h-9 px-4 py-2 rounded-[32px] border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-
+        
         {/* Right side items */}
         <div className="flex items-center space-x-8">            
           <Link
@@ -39,6 +94,12 @@ const Navbar = () => {
           >
             <Heart className="h-4 w-4 fill-white text-white"/>
             Wishlist
+          </Link>
+          <Link
+            to="/dashboard"
+            className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-[#004AAD] text-white rounded-full hover:bg-blue-600 transition-colors"
+          >
+            Admin
           </Link>
 
           <div className="relative flex items-center space-x-2">
@@ -76,7 +137,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
-
+          
           <Link 
             to="/cart"
             className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors"
