@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import ScrollToTop from './components/ScrollToTop'; // Importing ScrollToTop component
 
+
 {/* Importing layouts and pages */}
 import MainLayout from '../src/layouts/MainLayout';
 import GuestLayout from '../src/layouts/GuestLayout';
@@ -39,7 +40,9 @@ import ForgetPasswordPage from './pages/authentication/ForgetPasswordPage';
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop /> {/* Add ScrollToTop here */}
+      
+      
+      <ScrollToTop /> {/* Add ScrollToTop here */}
       <Routes>
 
         {/* Main Layout */}

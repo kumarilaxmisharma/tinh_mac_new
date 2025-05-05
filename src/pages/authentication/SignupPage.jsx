@@ -50,7 +50,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="items-center max-h-screen px-120 py-15 sm:py-12 lg:py-24">
+    <div className="items-center max-h-screen px-120 py-20 sm:py-12 lg:py-24 mb-30">
       <form className="max-w-screen mx-auto border-1 border-gray-100 rounded-[24px] shadow-lg p-10 bg-white" onSubmit={handleSubmit}>
         <h3 className="text-3xl font-bold text-center mb-5 text-[#004AAD]">Create an account</h3>
         

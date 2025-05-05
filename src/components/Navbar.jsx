@@ -26,38 +26,17 @@ const Navbar = () => {
     };
   }, [isDropdownOpen]);
 
-  // Check if user is logged in (you would use your auth system here)
-  useEffect(() => {
-    // Example: Check localStorage, cookies, or context for auth state
-    const checkAuthStatus = () => {
-      // This is a placeholder - replace with your actual auth check
-      const token = localStorage.getItem('authToken');
-      const user = localStorage.getItem('user');
-      
-      if (token) {
-        setIsLoggedIn(true);
-        setUserName(user ? JSON.parse(user).name : 'User');
-      }
-    };
-    
-    checkAuthStatus();
-  }, []);
-
   // Handle logout
   const handleLogout = () => {
-    // Clear auth data
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
     setIsLoggedIn(false);
+    setUserName('');
     setIsDropdownOpen(false);
   };
 
-  // For demonstration purposes only
+  // For demonstration purposes only - temporary UI change that doesn't persist
   const toggleLoginState = () => {
     if (!isLoggedIn) {
-      // Simulate login
-      localStorage.setItem('authToken', 'demo-token');
-      localStorage.setItem('user', JSON.stringify({ name: 'John Doe' }));
+      // Simulate login - only for this session, won't persist on refresh
       setIsLoggedIn(true);
       setUserName('John Doe');
     } else {
@@ -95,49 +74,8 @@ const Navbar = () => {
             <Heart className="h-4 w-4 fill-white text-white"/>
             Wishlist
           </Link>
-          <Link
-            to="/dashboard"
-            className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-[#004AAD] text-white rounded-full hover:bg-blue-600 transition-colors"
-          >
-            Admin
-          </Link>
 
-          <div className="relative flex items-center space-x-2">
-            {/* Login/Signup Button */}      
-            <button 
-              onClick={toggleDropdown}
-              className="text-[#004AAD] bg-white hover:bg-blue-100 hover:rounded-[28px] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-1 cursor-pointer" 
-              type="button"
-            >
-              Log in/Sign up 
-              <ChevronDown className="h-4 w-4" />
-            </button>
 
-            {/* Dropdown menu */}
-            {isDropdownOpen && (
-              <div className="absolute top-full mt-2 left-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
-                <ul className="py-2 text-sm text-gray-700">
-                  <li>
-                    <Link
-                      to="/login" 
-                      className="block px-5 py-2.5 hover:bg-gray-100"
-                    >
-                      Log in
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/signup" 
-                      className="block px-5 py-2.5 hover:bg-gray-100"
-                    >
-                      Sign up
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-          
           <Link 
             to="/cart"
             className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors"
@@ -145,6 +83,102 @@ const Navbar = () => {
             <ShoppingCart className="h-4 w-4"/>
             Cart
           </Link>
+          
+          {/* Auth Section - Dynamic based on login state */}      
+          <div className="relative dropdown-container flex items-center space-x-2">
+            {isLoggedIn ? (
+              // User Profile Icon and Menu for logged-in users
+              <div className="relative">
+                <button 
+                  onClick={toggleDropdown}
+                  className="flex items-center text-[#004AAD] hover:bg-blue-100 hover:rounded-full transition-all p-2"
+                >
+                  <div className="h-9 w-9 rounded-full bg-[#004AAD] flex items-center justify-center text-white">
+                    <User size={18} />
+                  </div>
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </button>
+                
+                {/* User dropdown menu */}
+                {isDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-md w-48">
+                    <div className="px-4 py-3 text-sm text-gray-900">
+                      <div className="font-medium">{userName}</div>
+                      <div className="truncate text-gray-500">user@example.com</div>
+                    </div>
+                    <ul className="py-2 text-sm text-gray-700">
+                      <li>
+                        <Link to="/profile" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                          <User className="h-4 w-4 mr-2" />
+                          Profile
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/settings" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                          <Settings className="h-4 w-4 mr-2" />
+                          Settings
+                        </Link>
+                      </li>
+                      <li>
+                        <button 
+                          onClick={handleLogout} 
+                          className="flex items-center w-full text-left px-4 py-2 hover:bg-gray-100"
+                        >
+                          <LogOut className="h-4 w-4 mr-2" />
+                          Sign out
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ) : (
+              // Login/Signup Button for guests
+              <div className="relative">
+                <button 
+                  onClick={toggleDropdown}
+                  className="text-[#004AAD] bg-white hover:bg-blue-100 hover:rounded-[28px] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-1 cursor-pointer" 
+                  type="button"
+                >
+                  Log in/Sign up 
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                
+                {/* Dropdown menu */}
+                {isDropdownOpen && (
+                  <div className="absolute top-full mt-2 right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
+                    <ul className="py-2 text-sm text-gray-700">
+                      <li>
+                        <Link
+                          to="/login" 
+                          className="block px-5 py-2.5 hover:bg-gray-100"
+                        >
+                          Log in
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/signup" 
+                          className="block px-5 py-2.5 hover:bg-gray-100"
+                        >
+                          Sign up
+                        </Link>
+                      </li>
+                      {/* Temporary button for demo purposes */}
+                      <li className="border-t border-gray-200">
+                        <button
+                          onClick={toggleLoginState}
+                          className="block w-full text-left px-5 py-2.5 text-blue-600 hover:bg-gray-100"
+                        >
+                          Demo: Toggle Login
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
