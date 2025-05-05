@@ -44,6 +44,7 @@ function App() {
         {/* Main Layout */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/macbook_air" element={<MacBookAirPage />} />
           <Route path="/macbook_pro" element={<MacBookProPage />} />
           {/* <Route path='/imac' element={<IMac />} /> */}
