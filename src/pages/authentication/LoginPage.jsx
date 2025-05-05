@@ -16,7 +16,9 @@ const LoginPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError(''); 
-
+  
+    console.log('Attempting to log in with:', { email }); // Log the email being used
+  
     try {
       const response = await fetch('http://localhost:8080/api/auth/signin', {
         method: 'POST',
@@ -25,19 +27,28 @@ const LoginPage = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+      console.log('Response from server:', data); // Log the server response
+  
       if (!response.ok) {
         throw new Error(data.message || 'Login failed');
       }
-
+  
       console.log('Login successful:', data);
-
+  
       localStorage.setItem('token', data.accessToken); 
-      
-      navigate('/home'); 
+  
+      // Check for the role in the data
+      if (data.role === 'admin') {
+        console.log('Redirecting to dashboard as an admin.'); // Log redirection
+        navigate('/dashboard');
+      } else {
+        console.log('Redirecting to home.'); // Log redirection
+        navigate('/home'); 
+      }
     } catch (error) {
+      console.error('Login error:', error.message); // Log error details
       setError(error.message); 
     }
   };
