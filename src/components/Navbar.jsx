@@ -40,12 +40,6 @@ const Navbar = () => {
             <Heart className="h-4 w-4 fill-white text-white"/>
             Wishlist
           </Link>
-          <Link
-            to="/dashboard"
-            className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-[#004AAD] text-white rounded-full hover:bg-blue-600 transition-colors"
-          >
-            Admin
-          </Link>
 
           <div className="relative flex items-center space-x-2">
             {/* Login/Signup Button */}      
