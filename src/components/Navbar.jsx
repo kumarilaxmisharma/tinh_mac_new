@@ -66,6 +66,8 @@ const Navbar = () => {
         </div>
         
         {/* Right side items */}
+
+        {/* Wishlist */}
         <div className="flex items-center space-x-8">            
           <Link
             to="/wished-list"
@@ -75,7 +77,7 @@ const Navbar = () => {
             Wishlist
           </Link>
 
-
+        {/* Cart */}
           <Link 
             to="/cart"
             className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors"
@@ -108,7 +110,7 @@ const Navbar = () => {
                     </div>
                     <ul className="py-2 text-sm text-gray-700">
                       <li>
-                        <Link to="/profile" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                        <Link to="/user-profile" className="flex items-center px-4 py-2 hover:bg-gray-100">
                           <User className="h-4 w-4 mr-2" />
                           Profile
                         </Link>

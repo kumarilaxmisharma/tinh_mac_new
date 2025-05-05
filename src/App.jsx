@@ -17,14 +17,13 @@ import CategoryPage from './pages/admin_page/CategoryPage';
 import OrdersPage from './pages/admin_page/OrdersPage';
 import ActivityLogPage from './pages/admin_page/ActivityLogPage';
 
-{/* Importing user pages */}
+{/* User pages */}
 import HomePage from './pages/user_page/HomePage';
 import MacBookAirPage from './pages/user_page/MacBookAirPage';
 import MacBookProPage from './pages/user_page/MacBookProPage';
+import SettingPage from './pages/user_page/SettingPage';
 import OrderConfirmationPage from './pages/user_page/OrderConfirmationPage';
 import SummaryPage from './pages/user_page/SummaryPage';
-
-// // import IMac from './pages/IMac';
 import ProductDetail from './pages/user_page/ProductDetail';
 import CartPage from './pages/user_page/CartPage';
 import CheckoutPage from './pages/user_page/CheckoutPage';
@@ -58,6 +57,7 @@ function App() {
           <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
           <Route path="/order-summary" element={<SummaryPage />} />
           <Route path="/wished-list" element={<WishedListPage />} />
+          <Route path="/settings" element={<SettingPage />} />
         </Route>
 
         {/* Geust Layout */}
