@@ -29,10 +29,11 @@ import CartPage from './pages/user_page/CartPage';
 import CheckoutPage from './pages/user_page/CheckoutPage';
 import WishedListPage from './pages/user_page/WishedListPage';
 
-{/* Importing guest pages */}
+{/* Authentication guest pages */}
 import LoginPage from './pages/authentication/LoginPage';
 import SignupPage from './pages/authentication/SignupPage';
 import SignupAdmin from './pages/authentication/SignupAdmin';
+import ForgetPasswordPage from './pages/authentication/ForgetPasswordPage';
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/signup-business" element={<SignupAdmin />} />
+          <Route path="/login/forget-password" element={<ForgetPasswordPage />} />
         </Route>
 
         {/* Admin Layout */}

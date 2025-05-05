@@ -9,9 +9,9 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleForgetPassword = () => {
-    navigate('/forget-password');
-  };
+  // const handleForgetPassword = () => {
+  //   navigate('/forget-password');
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -53,6 +53,24 @@ const LoginPage = () => {
     }
   };
 
+
+//Create handle submit function
+//event.preventDefault() to prevent the default form submission
+
+
+//Create {useNavigate} hook to navigate to home page when user login
+
+
+// const LoginPage = () => {
+//   // const navigate = useNavigate();
+
+//   // const handleForgetPassword = () => {
+//   //   //Redirect to the forget password page
+//   //   navigate('/forget-password');
+
+//   // };
+
+
   return (
     <div className="items-center min-h-screen px-120 py-15 mt-20">
       <form
@@ -91,13 +109,14 @@ const LoginPage = () => {
             required
           />
           <div className="text-right mt-2">
-            <button
+            <Link
+              to='/login/forget-password'
               type="button"
-              onClick={handleForgetPassword}
+              // onClick={handleForgetPassword}
               className="text-sm text-blue-600 hover:underline focus:outline-none cursor-pointer"
             >
               Forget Password?
-            </button>
+            </Link>
           </div>
         </div>
 
