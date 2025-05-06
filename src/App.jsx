@@ -28,6 +28,7 @@ import ProductDetail from './pages/user_page/ProductDetail';
 import CartPage from './pages/user_page/CartPage';
 import CheckoutPage from './pages/user_page/CheckoutPage';
 import WishedListPage from './pages/user_page/WishedListPage';
+import ChangePassword from './components/user/ChangePassword';
 
 {/* Authentication guest pages */}
 import LoginPage from './pages/authentication/LoginPage';
@@ -58,6 +59,7 @@ function App() {
           <Route path="/order-summary" element={<SummaryPage />} />
           <Route path="/wished-list" element={<WishedListPage />} />
           <Route path="/settings" element={<SettingPage />} />
+         
         </Route>
 
         {/* Geust Layout */}
