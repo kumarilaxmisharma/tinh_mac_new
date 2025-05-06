@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, ShoppingCart, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
+import 'react-toastify/dist/ReactToastify.css'; // Importing CSS for toast notifications
+import { toast, ToastContainer } from 'react-toastify';
 
 const WishlistPage = () => {
   const navigate = useNavigate();
@@ -81,7 +83,51 @@ const WishlistPage = () => {
 
   // Handle removing item from wishlist
   const removeFromWishlist = (itemId) => {
-    setWishlistItems(wishlistItems.filter(item => item.id !== itemId));
+    setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    toast.success('Item removed from wishlist!', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+
+  // Confirm before removing item
+  const confirmRemove = (itemId) => {
+    toast(
+      ({ closeToast }) => (
+        <div>
+          <p>Are you sure you want to remove this item from your wishlist?</p>
+          <div className="flex justify-end space-x-2 mt-2">
+            <button
+              onClick={() => {
+                removeFromWishlist(itemId); // Remove the item
+                closeToast(); // Close the toast
+              }}
+              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Yes
+            </button>
+            <button
+              onClick={closeToast}
+              className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        position: 'top-right',
+        autoClose: false, // Disable auto-close for confirmation
+        closeOnClick: false,
+        draggable: false,
+      }
+    );
   };
   
   // Handle adding item to cart
@@ -97,6 +143,8 @@ const WishlistPage = () => {
   const viewProductDetails = (productId) => {
     navigate(`/product/${productId}`);
   };
+
+  
   
   // Calculate pagination
   const totalPages = Math.ceil(wishlistItems.length / itemsPerPage);
@@ -111,6 +159,9 @@ const WishlistPage = () => {
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto px-4 py-8">
+      {/* Toast Notifications */}
+      <ToastContainer />
+
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
@@ -141,8 +192,8 @@ const WishlistPage = () => {
           <h2 className="mt-4 text-xl font-medium text-gray-700">Your wishlist is empty</h2>
           <p className="mt-2 text-gray-500">Browse our store and add items you love to your wishlist</p>
           <button 
-            onClick={() => navigate('/products')}
-            className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            onClick={() => navigate('/')}
+            className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer "
           >
             Start Shopping
           </button>
@@ -228,9 +279,9 @@ const WishlistPage = () => {
                     {item.inStock ? 'Add to Cart' : 'Unavailable'}
                   </button>
                   
-                  {/* Remove Button */}
+                  {/* Remove Product Button */}
                   <button
-                    onClick={() => removeFromWishlist(item.id)}
+                    onClick={() => confirmRemove(item.id)}
                     className="w-full mt-2 py-2 text-gray-600 hover:text-red-500 text-sm flex items-center justify-center cursor-pointer"
                   >
                     <Trash2 size={14} className="mr-1" />

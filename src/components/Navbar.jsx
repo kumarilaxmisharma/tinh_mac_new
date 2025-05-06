@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Heart, ChevronDown, User, LogOut, Settings } from "lucide-react";
 import React, { useState, useEffect } from 'react';
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -44,9 +46,33 @@ const Navbar = () => {
     }
   };
 
+  //Asking user if sure to logout using toastify
+  const confirmLogout = () => {
+    toast.success("Logged out successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+
+  //Confirm before logout
+  const handleLogoutConfirm = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      handleLogout();
+    }
+  }
+
   return (
+
     <header className="md:ml-0 fixed top-0 left-0 right-0 z-20 h-20 bg-white border-b border-gray-200 shadow-xs">
+
       <div className="container max-w-full h-full px-22 flex justify-between items-center">
+        <ToastContainer />
         {/* Logo */}
         <Link to={"/"} className="flex items-center space-x-1 cursor-pointer">
           <img 
@@ -123,8 +149,8 @@ const Navbar = () => {
                       </li>
                       <li>
                         <button 
-                          onClick={handleLogout} 
-                          className="flex items-center w-full text-left px-4 py-2 hover:bg-gray-100"
+                          onClick={handleLogoutConfirm}
+                          className="flex items-center w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
                         >
                           <LogOut className="h-4 w-4 mr-2" />
                           Sign out

@@ -372,7 +372,7 @@ const AddressManagement = () => {
               <input
                 type="text"
                 name="district"
-                value={currentAddress?.city || ''}
+                value={currentAddress?.district || ''}
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="District"
@@ -386,7 +386,7 @@ const AddressManagement = () => {
                 <input
                   type="text"
                   name="city"
-                  value={currentAddress?.state || ''}
+                  value={currentAddress?.city || ''}
                   onChange={handleInputChange}
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="City"
