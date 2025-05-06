@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Heart, ChevronDown, User, LogOut, Settings } from "lucide-react";
 import React, { useState, useEffect } from 'react';
-import {toast, ToastContainer} from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
@@ -28,11 +28,22 @@ const Navbar = () => {
     };
   }, [isDropdownOpen]);
 
-  // Handle logout
+  // Handle logout functionality
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserName('');
     setIsDropdownOpen(false);
+    
+    // Display success message
+    toast.success("Logged out successfully!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
   };
 
   // For demonstration purposes only - temporary UI change that doesn't persist
@@ -46,33 +57,44 @@ const Navbar = () => {
     }
   };
 
-  //Asking user if sure to logout using toastify
-  const confirmLogout = () => {
-    toast.success("Logged out successfully!", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  }
-
-  //Confirm before logout
-  const handleLogoutConfirm = () => {
-    if (window.confirm("Are you sure you want to log out?")) {
-      handleLogout();
-    }
-  }
+  // Display logout confirmation toast
+  const showLogoutConfirmation = () => {
+    toast.info(
+      <div className="p-2">
+        <p className="mb-3 font-medium">Are you sure you want to log out?</p>
+        <div className="flex justify-end space-x-2">
+          <button
+            onClick={() => {
+              toast.dismiss(); // Close this toast first
+              handleLogout(); // Then perform logout
+            }}
+            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 cursor-pointer"
+          >
+            Yes
+          </button>
+          <button
+            onClick={() => toast.dismiss()}
+            className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 cursor-pointer"
+          >
+            No
+          </button>
+        </div>
+      </div>,
+      {
+        position: "top-center",
+        autoClose: false,
+        closeOnClick: false,
+        draggable: false,
+        closeButton: false,
+        className: "rounded-md",
+      }
+    );
+  };
 
   return (
-
     <header className="md:ml-0 fixed top-0 left-0 right-0 z-20 h-20 bg-white border-b border-gray-200 shadow-xs">
-
+      <ToastContainer />
       <div className="container max-w-full h-full px-22 flex justify-between items-center">
-        <ToastContainer />
         {/* Logo */}
         <Link to={"/"} className="flex items-center space-x-1 cursor-pointer">
           <img 
@@ -92,9 +114,8 @@ const Navbar = () => {
         </div>
         
         {/* Right side items */}
-
-        {/* Wishlist */}
         <div className="flex items-center space-x-8">            
+          {/* Wishlist */}
           <Link
             to="/wished-list"
             className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-[#004AAD] text-white rounded-full hover:bg-blue-600 transition-colors"
@@ -103,7 +124,7 @@ const Navbar = () => {
             Wishlist
           </Link>
 
-        {/* Cart */}
+          {/* Cart */}
           <Link 
             to="/cart"
             className="flex items-center justify-center text-sm gap-1 px-4 py-2 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors"
@@ -149,7 +170,7 @@ const Navbar = () => {
                       </li>
                       <li>
                         <button 
-                          onClick={handleLogoutConfirm}
+                          onClick={showLogoutConfirmation}
                           className="flex items-center w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
                         >
                           <LogOut className="h-4 w-4 mr-2" />
