@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import ScrollToTop from './components/ScrollToTop'; // Importing ScrollToTop component
+// Importing ScrollToTop component
+import ScrollToTop from './components/ScrollToTop';         
 
 
+import NotFoundPage from './pages/NotFoundPage'; // Importing NotFoundPage component
 {/* Importing layouts and pages */}
 import MainLayout from '../src/layouts/MainLayout';
 import GuestLayout from '../src/layouts/GuestLayout';
@@ -82,7 +84,7 @@ function App() {
           <Route path="/activity-log" element={<ActivityLogPage />} />
         </Route>
 
-        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

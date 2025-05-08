@@ -18,7 +18,7 @@ const WishlistPage = () => {
       setIsLoading(true);
       
       // Simulating API delay
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await new Promise(resolve => setTimeout(resolve, 500));
       
       // Mock wishlist data
       const mockWishlistData = [
@@ -134,18 +134,20 @@ const WishlistPage = () => {
   const addToCart = (item) => {
     // This would typically call an API to add the item to the cart
     console.log(`Added to cart: ${item.name}`);
-    
-    // Simulate success notification
-    alert(`${item.name} added to your cart!`);
-  };
-  
-  // Navigate to product details
-  const viewProductDetails = (productId) => {
-    navigate(`/product/${productId}`);
+
+    // Display success notification using Toastify
+    toast.success(`${item.name} added to your cart!`, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
-  
-  
+
   // Calculate pagination
   const totalPages = Math.ceil(wishlistItems.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
