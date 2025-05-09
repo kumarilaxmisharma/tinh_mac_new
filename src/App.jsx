@@ -7,8 +7,8 @@ import ScrollToTop from './components/ScrollToTop';
 import NotFoundPage from './pages/NotFoundPage'; // Importing NotFoundPage component
 {/* Importing layouts and pages */}
 import MainLayout from '../src/layouts/MainLayout';
-import GuestLayout from '../src/layouts/GuestLayout';
 import AdminLayout from '../src/layouts/AdminLayout';
+
 {/* Importing admin pages */}
 import DashboardPage from './pages/admin_page/DashboardPage';
 import ProductsPage from './pages/admin_page/ProductsPage';
@@ -30,7 +30,6 @@ import ProductDetail from './pages/user_page/ProductDetail';
 import CartPage from './pages/user_page/CartPage';
 import CheckoutPage from './pages/user_page/CheckoutPage';
 import WishedListPage from './pages/user_page/WishedListPage';
-import ChangePassword from './components/user/ChangePassword';
 
 {/* Authentication guest pages */}
 import LoginPage from './pages/authentication/LoginPage';
@@ -42,8 +41,6 @@ import ForgetPasswordPage from './pages/authentication/ForgetPasswordPage';
 function App() {
   return (
     <BrowserRouter>
-      
-      
       <ScrollToTop /> {/* Add ScrollToTop here */}
       <Routes>
 
@@ -61,11 +58,6 @@ function App() {
           <Route path="/order-summary" element={<SummaryPage />} />
           <Route path="/wished-list" element={<WishedListPage />} />
           <Route path="/settings" element={<SettingPage />} />
-         
-        </Route>
-
-        {/* Geust Layout */}
-        <Route element={<GuestLayout />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/signup-business" element={<SignupAdmin />} />
