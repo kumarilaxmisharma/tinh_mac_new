@@ -16,7 +16,7 @@ const ProductCards = () => {
       rating: 4.8,
       description:
         "Apple M-series chip. It delivers lightning-fast processing, all-day battery life, and pro-grade graphics",
-      image: "src/assets/images/IMac carousel.jpg",
+      image: "/images/IMac carousel.jpg",
     },
     {
       id: "macbook-air",
@@ -25,7 +25,7 @@ const ProductCards = () => {
       rating: 4.8,
       description:
         "Apple M-series chip. It delivers lightning-fast processing, all-day battery life, and pro-grade graphics",
-      image: "src/assets/images/Macbook Air.jpeg",
+      image: "/images/Macbook Air.jpeg",
     },
     {
       id: "macbook-pro-m4",
@@ -34,7 +34,7 @@ const ProductCards = () => {
       rating: 4.8,
       description:
         "Apple M-series chip. It delivers lightning-fast processing, all-day battery life, and pro-grade graphics",
-      image: "src/assets/images/IMac M4 chip.png",
+      image: "/images/IMac M4 chip.png",
     },
     {
       id: "pro-display-xdr",
@@ -43,7 +43,7 @@ const ProductCards = () => {
       rating: 4.8,
       description:
         "Apple M-series chip. It delivers lightning-fast processing, all-day battery life, and pro-grade graphics",
-      image: "src/assets/images/Pro Display XDR.jpeg",
+      image: "/images/Pro Display XDR.jpeg",
     },
     {
       id: "studio-display",
@@ -52,7 +52,7 @@ const ProductCards = () => {
       rating: 4.8,
       description:
         "Apple M-series chip. It delivers lightning-fast processing, all-day battery life, and pro-grade graphics",
-      image: "src/assets/images/about_mac/Studio Display.png",
+      image: "/images/about_mac/Studio Display.png",
     },
   ];
 

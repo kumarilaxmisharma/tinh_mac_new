@@ -4,24 +4,24 @@ const AboutMac = () => {
   // Data structure for special deals with images
   const deals = {
     leftColumn: [
-      { title: "Special Deal", image: "src/assets/images/about_mac/Studio Display.png" },
-      { title: "Special Deal", image: "src/assets/images/about_mac/Build to stand the test of time.jpg" },
-      { title: "Special Deal", image: "src/assets/images/about_mac/Interaction.jpg" }
+      { title: "Special Deal", image: "/images/about_mac/Studio Display.png" },
+      { title: "Special Deal", image: "/images/about_mac/Build to stand the test of time.jpg" },
+      { title: "Special Deal", image: "/images/about_mac/Interaction.jpg" }
     ],
     middleColumn: [
-      { title: "Special Deal", image: "src/assets/images/about_mac/connectivity_displays__er91a9b94oeq_large_2x.jpg" },
+      { title: "Special Deal", image: "/images/about_mac/connectivity_displays__er91a9b94oeq_large_2x.jpg" },
       { 
         smallDeals: [
-          { title: "Special Deal", image: "src/assets/images/about_mac/IMac carousel 3.jpg" },
-          { title: "Special Deal", image: "src/assets/images/about_mac/Mac is build to last.jpg" }
+          { title: "Special Deal", image: "/images/about_mac/IMac carousel 3.jpg" },
+          { title: "Special Deal", image: "/images/about_mac/Mac is build to last.jpg" }
         ]
       },
-      { title: "Special Deal", image: "src/assets/images/about_mac/Everything in one .png" }
+      { title: "Special Deal", image: "/images/about_mac/Everything in one .png" }
     ],
     rightColumn: [
-      { title: "Special Deal", image: "src/assets/images/about_mac/mac_iphone__n2863l0ne0q6_large_2x.jpg" },
-      { title: "Special Deal", image: "src/assets/images/about_mac/Kids.jpg" },
-      { title: "Special Deal", image: "src/assets/images/about_mac/Performance and Battery.jpg" }
+      { title: "Special Deal", image: "/images/about_mac/mac_iphone__n2863l0ne0q6_large_2x.jpg" },
+      { title: "Special Deal", image: "/images/about_mac/Kids.jpg" },
+      { title: "Special Deal", image: "/images/about_mac/Performance and Battery.jpg" }
     ]
   }
 

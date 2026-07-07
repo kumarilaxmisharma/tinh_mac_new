@@ -4,11 +4,11 @@ const MacBookProPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
-    "src/assets/images/macbook_pro/Macpro 14'' 16''.jpg",
-    "src/assets/images/macbook_pro/Macpro 16''.jpg",
-    "src/assets/images/macbook_pro/sideview.jpg",
-    "src/assets/images/macbook_pro/Macpro.jpg",
-    "src/assets/images/macbook_pro/topview.jpg",
+    "/images/macbook_pro/Macpro 14'' 16''.jpg",
+    "/images/macbook_pro/Macpro 16''.jpg",
+    "/images/macbook_pro/sideview.jpg",
+    "/images/macbook_pro/Macpro.jpg",
+    "/images/macbook_pro/topview.jpg",
   ];
 
   const handleNext = () => {
@@ -126,7 +126,7 @@ const MacBookProPage = () => {
         <div>
           <img
             className="h-auto max-w-full rounded-4xl"
-            src="src/assets/images/macbook_pro/coding.jpg"
+            src="/images/macbook_pro/coding.jpg"
             alt="Coding with Macbook Pro"
           />
           <h4 className="relative text-4xl font-bold text-center mt-5 text-gray-700">
@@ -136,7 +136,7 @@ const MacBookProPage = () => {
         <div>
           <img
             className="h-auto max-w-full rounded-4xl"
-            src="src/assets/images/macbook_pro/graphic_design.jpg"
+            src="/images/macbook_pro/graphic_design.jpg"
             alt="Graphic Design with Mabook Pro"
           />
           <h4 className="relative text-4xl font-bold text-center mt-5 text-gray-700">
@@ -146,7 +146,7 @@ const MacBookProPage = () => {
         <div>
           <img
             className="h-auto max-w-full rounded-4xl"
-            src="src/assets/images/macbook_pro/music production.jpg"
+            src="/images/macbook_pro/music production.jpg"
             alt="Music Production with Macbook Pro"
           />
           <h4 className="relative text-4xl font-bold text-center mt-5 text-gray-700">
@@ -156,7 +156,7 @@ const MacBookProPage = () => {
         <div>
           <img
             className="h-auto max-w-full rounded-4xl"
-            src="src/assets/images/macbook_pro/video_editing.jpg"
+            src="/images/macbook_pro/video_editing.jpg"
             alt="Video Edititng with Macbook Pro"
           />
           <h4 className="relative text-4xl font-bold text-center mt-5 text-gray-700">

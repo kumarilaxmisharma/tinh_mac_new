@@ -70,7 +70,7 @@ const AdminAddProductPage = () => {
       }
     }
     
-    newImages.splice(index, 1);
+    news.splice(index, 1);
     newPreviews.splice(index, 1);
     
     setImages(newImages);

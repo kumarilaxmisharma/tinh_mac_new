@@ -7,7 +7,7 @@ const Footer = () => {
           <div className="container max-w-screen px-22 py-6 lg:py-8">
               <div className="md:flex md:justify-between">
                 <div className="mb-6 md:mb-0">
-                    <img src="src/assets/images/logo/Logo.png" alt="Logo" className="flex items-center h-20 me-3"/>
+                    <img src="/images/logo/Logo.png" alt="Logo" className="flex items-center h-20 me-3"/>
                         <p className=" text-white">Mac ecommerce website base in Cambodia.</p>
             
                 </div>
